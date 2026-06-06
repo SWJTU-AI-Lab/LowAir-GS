@@ -143,7 +143,7 @@ apps/
 | Demo | 名称 | 状态 | 核心新增能力 |
 |---|---|---|---|
 | Demo-01 | UDP 无人机遥测接入与简化低空场景显示 | ✅ 已完成 | Qt 框架 + 内置场景 + 局部坐标 UDP |
-| Demo-02 | 现成摄影测量三维模型加载与交互式浏览 | ⏳ 规划中 | Assimp 加载外部 OBJ/PLY 摄影测量模型 |
+| Demo-02 | 现成摄影测量三维模型加载与交互式浏览 | ✅ 已完成 | Assimp 模型加载 + 现代 OpenGL 渲染 |
 | Demo-03 | WGS84 / ENU / SCENE 坐标转换与真实位置对齐 | ⏳ 规划中 | WGS84→ENU→SCENE 坐标转换 |
 | Demo-04 | 真实无人机或仿真平台接入 | ⏳ 规划中 | MAVLink/ROS2 真实无人机接入 |
 | Demo-05 | 3D Gaussian Splatting 场景加载与显示 | ⏳ 规划中 | 3DGS 神经辐射场实时渲染 |

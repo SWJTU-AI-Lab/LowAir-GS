@@ -263,24 +263,23 @@ LowAir-GS/
 **Demo-01 基础框架重构版已提交（2026-06-06）。** 
 详见：[Demo 路线图 (DEMO_ROADMAP.md)](docs/DEMO_ROADMAP.md)
 
-### 12.1 Demo-01 完成情况
+### 12.1 Demo 完成情况
 
-- [x] **Qt C++ UDP 无人机遥测接入与简化低空场景显示**（`apps/uav_scene_fusion_qt/`）
-  - **零外部三维库依赖**：移除 Assimp 强依赖，仅依赖 Qt6
-  - **内置简化场景**：增强的 SimpleScene（地面网格、坐标轴、建筑块、起降圆环、参考航线）
-  - 基于 QOpenGLWidget 的三维场景交互渲染（旋转、缩放、重置视角）
-  - UDP JSON 遥测接收（14580 端口，20 Hz，QUdpSocket 异步解析）
-  - 无人机四面体模型实时位姿更新 + 橙色历史轨迹线（最多 1000 点）
-  - 深色主题（Dark Mode）GCS 状态面板（坐标、姿态、电量、轨迹点数）
+#### Demo-02: 静态三维资产加载与渲染 (已完成)
+- [x] **独立 Qt C++ 资产查看器**（`apps/demo02_static_asset_viewer/`）
+  - **Assimp 模型加载**：支持 OBJ/PLY/GLB 等标准三维格式
+  - **现代 OpenGL 渲染管线**：VAO/VBO/Shader 架构，支持 Blinn-Phong 光照
+  - **交互式相机控制**：OrbitCamera，支持旋转、缩放、平移、适配模型
+  - **模型信息面板**：实时显示顶点数、面数、材质数、包围盒尺寸
+  - **多模式渲染**：支持实体、线框（Wireframe）、包围盒（BBox）切换
+- [x] **Python 资产生成脚本**（`tools/model_generators/generate_demo02_assets.py`）
+  - 自动生成带材质的建筑块模型和地形网格模型
+
+#### Demo-01: UDP 无人机遥测接入与简化低空场景显示 (已完成)
+- [x] **Qt C++ 主程序**（`apps/uav_scene_fusion_qt/`）
+  - 零外部三维库依赖，内置简化场景，UDP JSON 遥测接收，无人机轨迹渲染
 - [x] **Python 无人机模拟器**（`tools/telemetry_simulator/send_uav_udp.py`）
-  - 椭圆飞行轨迹，高度起伏，姿态变化，支持 `--rate` 参数
-- [x] **一键安装脚本**（`install.sh`）
-  - 自动安装 Qt6、CMake、编译工具链，构建主程序
-- [x] **完整文档体系**
-  - [`docs/DEMO_ROADMAP.md`](docs/DEMO_ROADMAP.md)：Demo 演进路线图与边界定义
-  - [`USER_MANUAL.md`](USER_MANUAL.md)：软件应用手册（环境要求、安装、操作指南、FAQ）
-  - [`DEV_GUIDE.md`](DEV_GUIDE.md)：二次开发手册（架构说明、核心类、UDP 协议、扩展指南）
-  - [`TECHNICAL_REPORT.md`](TECHNICAL_REPORT.md)：技术报告（绪论、技术方案、光照公式、位姿矩阵推导、结论展望）
+- [x] **完整文档体系**（`USER_MANUAL.md`, `DEV_GUIDE.md`, `TECHNICAL_REPORT.md`）
 
 ### 12.2 快速开始
 
@@ -308,21 +307,20 @@ LowAir-GS/
 ├── DEV_GUIDE.md                        # 二次开发手册
 ├── TECHNICAL_REPORT.md                 # 技术报告
 ├── apps/
+│   ├── demo02_static_asset_viewer/     # Demo-02 静态三维资产查看器
+│   │   ├── CMakeLists.txt              # 依赖 Qt6 + Assimp
+│   │   ├── asset/                      # Assimp 模型加载模块
+│   │   ├── camera/                     # OrbitCamera 交互相机
+│   │   └── render/                     # 现代 OpenGL 渲染器 (Mesh/Grid/BBox)
 │   └── uav_scene_fusion_qt/            # Demo-01 Qt C++ 主程序
-│       ├── CMakeLists.txt              # 仅依赖 Qt6
-│       ├── main.cpp / MainWindow / RenderWidget
-│       ├── geo/CoordinateManager       # 坐标系接口（预留 WGS84）
-│       ├── render/
-│       │   ├── UavRenderer             # 无人机四面体模型
-│       │   └── TrajectoryRenderer      # 橙色轨迹线
-│       ├── scene/SimpleScene           # 内置场景：网格/建筑/起降点/航线
-│       └── telemetry/UdpJsonReceiver   # UDP JSON 接收解析
+├── sample_data/
+│   └── demo02_assets/                  # Demo-02 示例三维资产
 ├── tools/
-│   └── telemetry_simulator/
-│       └── send_uav_udp.py             # Python 无人机模拟器
+│   ├── model_generators/               # Python 三维资产生成脚本
+│   └── telemetry_simulator/            # Python 无人机遥测模拟器
 └── docs/
-    ├── DEMO_ROADMAP.md                 # Demo 路线图
-    └── tasks/demo-01-uav-scene-fusion-task-card.md
+    ├── DEMO_ROADMAP.md                 # Demo 路线图与边界定义
+    └── tasks/                          # 任务卡目录
 ```
 
 ### 12.4 后续计划
