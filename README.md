@@ -320,6 +320,15 @@ LowAir-GS/
 - [x] **Python 资产生成脚本**（`tools/gaussian_generators/generate_demo06_assets.py`）
   - 自动生成测试用的简易 Mesh 和 Gaussian 资产，以及融合配置 JSON
 
+#### Demo-07: 虚拟目标、事件、特效与游戏化评估 (已完成)
+- [x] **独立 Qt C++ 游戏化评估系统**（`apps/demo07_game_event_evaluation/`）
+  - **虚拟目标与区域**：支持 JSON 配置的 3D 虚拟目标点和触发区域
+  - **事件引擎**：实时监控无人机轨迹，自动触发到达、进入、离开等事件
+  - **特效渲染**：集成目标发光（Glow）和区域粒子（Particle）视觉特效
+  - **游戏化评分**：基于事件、时间、电量进行自动化评分并生成任务报告
+- [x] **Python 示例数据生成脚本**（`tools/gaussian_generators/generate_demo07_assets.py`）
+  - 自动生成任务配置、虚拟目标、触发区域、评分规则和轨迹回放数据
+
 #### Demo-05: 3D Gaussian Splatting 场景加载与显示 (已完成)
 - [x] **独立 Qt C++ 3DGS 查看器**（`apps/demo05_gaussian_splat_viewer/`）
   - **资产加载**：支持标准 3DGS PLY 格式解析（位置、颜色、缩放、旋转、不透明度）
