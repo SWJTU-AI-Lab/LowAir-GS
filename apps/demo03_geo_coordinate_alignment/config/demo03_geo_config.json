@@ -1,0 +1,24 @@
+{
+  "geo_origin": {
+    "lat": 30.700000,
+    "lon": 104.000000,
+    "alt": 500.0
+  },
+  "scene": {
+    "unit": "meter",
+    "coordinate_frame": "ENU_SCENE",
+    "scene_scale": 1.0,
+    "max_display_radius_m": 200.0
+  },
+  "telemetry": {
+    "type": "udp_json_wgs84",
+    "port": 14581
+  },
+  "display": {
+    "show_grid": true,
+    "show_axis": true,
+    "show_origin_marker": true,
+    "show_trajectory": true,
+    "show_distance_rings": true
+  }
+}

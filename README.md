@@ -269,6 +269,14 @@ LowAir-GS/
 
 ### 12.1 Demo 完成情况
 
+#### Demo-03: WGS84 / ENU / SCENE 坐标转换与真实位置对齐 (已完成)
+- [x] **独立 Qt C++ 坐标转换演示器**（`apps/demo03_geo_coordinate_alignment/`）
+  - **坐标转换**：实现 WGS84 → ECEF → ENU → SCENE 的完整链路
+  - **OpenGL 渲染**：实时渲染地理原点、ENU坐标轴、无人机实体及历史轨迹
+  - **UI 面板**：支持动态配置原点经纬高、一键校验坐标转换精度
+- [x] **Python WGS84 模拟器**（`tools/geo_telemetry_simulator/send_wgs84_uav_udp.py`）
+  - 模拟无人机绕地理原点做椭圆轨迹飞行，发送真实经纬高数据
+
 #### Demo-02: 静态三维资产加载与渲染 (已完成)
 - [x] **独立 Qt C++ 资产查看器**（`apps/demo02_static_asset_viewer/`）
   - **Assimp 模型加载**：支持 OBJ/PLY/GLB 等标准三维格式
