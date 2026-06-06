@@ -1,0 +1,41 @@
+{
+  "description": "Demo-05 教学用途 Gaussian 示例数据",
+  "note": "本数据由脚本程序生成，不是真实 3DGS 训练结果，仅用于教学演示",
+  "relation_to_photogrammetry_mesh": {
+    "demo02_mesh": "Demo-02 加载的摄影测量 Mesh（OBJ/PLY 格式）",
+    "demo05_gaussian": "Demo-05 加载的 Gaussian 点云（PLY 格式）",
+    "semantic_relation": "两者表示同一低空场景的不同三维表达方式：Mesh 是显式几何，Gaussian 是隐式辐射场",
+    "fusion_status": "prepared_for_demo06_alignment",
+    "fusion_note": "Demo-05 不做 Mesh+3DGS 双源融合，融合功能在 Demo-06 中实现"
+  },
+  "future_alignment": {
+    "status": "prepared_for_demo06_alignment",
+    "transform": {
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": 1.0
+    },
+    "reference_frame": "LOCAL_SCENE",
+    "note": "Demo-06 将在此字段基础上实现 Gaussian 与 Mesh 的坐标对齐"
+  },
+  "files": {
+    "tiny_colored_gaussians.ply": {
+      "description": "200 个彩色 Gaussian，球形分布，用于验证 PLY 加载和颜色渲染",
+      "gaussians": 200,
+      "format": "Standard 3DGS PLY (ASCII)"
+    },
+    "lowair_demo_gaussian_cloud.ply": {
+      "description": "3000 个低空场景风格 Gaussian，包含地面/建筑/植被/天空语义层",
+      "gaussians": 3000,
+      "format": "Standard 3DGS PLY (ASCII)"
+    }
+  }
+}
