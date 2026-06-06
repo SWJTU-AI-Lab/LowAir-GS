@@ -148,34 +148,34 @@ COLMAP + Nerfstudio Splatfacto + SuperSplat
 
 ## 6. 仓库结构
 
-计划中的仓库结构如下：
+当前实际的仓库结构如下：
 
 ```text
 LowAir-GS/
 ├── README.md
+├── apps/
+│   ├── uav_scene_fusion_qt/            # Demo-01 Qt C++ 主程序
+│   └── demo02_static_asset_viewer/     # Demo-02 静态三维资产查看器
+├── tools/
+│   ├── telemetry_simulator/            # Python 无人机遥测模拟器
+│   └── model_generators/               # Python 三维资产生成脚本
+├── sample_data/
+│   └── demo02_assets/                  # Demo-02 示例三维资产
+├── screenshots/
+│   └── demo02/                         # Demo-02 验收截图材料
 ├── docs/
-│   ├── ROADMAP.md              # 项目路线图
-│   ├── DATASET_GUIDE.md        # 数据集与采集规范
-│   ├── EXPERIMENT_PLAN.md      # 实验设计方案
-│   └── STUDENT_TASKS.md        # 学生任务分工与验收要求
-├── scripts/
-│   └── .gitkeep                # 数据处理、训练、评估脚本
-├── data/
-│   └── .gitkeep                # 本地数据目录，不建议提交大文件
-├── assets/
-│   └── .gitkeep                # 图片、流程图、截图、展示素材
-├── outputs/
-│   └── .gitkeep                # 本地输出结果，不建议提交大文件
+│   ├── DEMO_ROADMAP.md                 # 项目 Demo 路线图
+│   └── tasks/                          # 学生任务分工与验收要求
 └── .gitignore
 ```
 
 说明：
 
-- `docs/` 用于存放项目规划、数据说明、实验设计和学生任务卡；
-- `scripts/` 用于存放后续的数据预处理、训练、评估和可视化脚本；
-- `data/` 用作本地数据工作区，大规模数据不要直接提交到 GitHub；
-- `assets/` 用于存放 README、报告和答辩 PPT 中使用的图示素材；
-- `outputs/` 用于存放模型输出、渲染视频、实验表格和日志结果，大文件建议本地保存或使用外部存储。
+- `apps/` 存放各独立 Demo 的 Qt C++ 源码项目；
+- `tools/` 存放配套的 Python 工具脚本（模拟器、资产生成等）；
+- `sample_data/` 存放各 Demo 需要的示例数据文件；
+- `screenshots/` 存放各 Demo 的运行验收截图；
+- `docs/` 用于存放项目路线图规划、实验设计和学生任务卡。
 
 ---
 
@@ -302,32 +302,7 @@ chmod +x install.sh && ./install.sh
 python3 tools/telemetry_simulator/send_uav_udp.py
 ```
 
-### 12.3 当前仓库结构
-
-```text
-LowAir-GS/
-├── install.sh                          # 一键安装脚本
-├── USER_MANUAL.md                      # 软件应用手册
-├── DEV_GUIDE.md                        # 二次开发手册
-├── TECHNICAL_REPORT.md                 # 技术报告
-├── apps/
-│   ├── demo02_static_asset_viewer/     # Demo-02 静态三维资产查看器
-│   │   ├── CMakeLists.txt              # 依赖 Qt6 + Assimp
-│   │   ├── asset/                      # Assimp 模型加载模块
-│   │   ├── camera/                     # OrbitCamera 交互相机
-│   │   └── render/                     # 现代 OpenGL 渲染器 (Mesh/Grid/BBox)
-│   └── uav_scene_fusion_qt/            # Demo-01 Qt C++ 主程序
-├── sample_data/
-│   └── demo02_assets/                  # Demo-02 示例三维资产
-├── tools/
-│   ├── model_generators/               # Python 三维资产生成脚本
-│   └── telemetry_simulator/            # Python 无人机遥测模拟器
-└── docs/
-    ├── DEMO_ROADMAP.md                 # Demo 路线图与边界定义
-    └── tasks/                          # 任务卡目录
-```
-
-### 12.4 后续计划
+### 12.3 后续计划
 
 后续将逐步补充：
 
