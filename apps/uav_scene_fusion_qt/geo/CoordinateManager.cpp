@@ -4,14 +4,16 @@ CoordinateManager::CoordinateManager()
 {
 }
 
-QVector3D CoordinateManager::sceneToScene(const QVector3D& p) const
+QVector3D CoordinateManager::sceneToRender(const QVector3D& p) const
 {
+    // Demo-01：SCENE 局部演示坐标直接透传，不做任何转换
     return p;
 }
 
 QVector3D CoordinateManager::wgs84ToScene(double lat, double lon, double alt) const
 {
-    // TODO: 实现 WGS84 到 ENU，再到 SCENE 的转换
+    // Reserved for Demo-03：WGS84 → ENU → SCENE 真实地理坐标转换
+    // Demo-01 不使用此接口
     Q_UNUSED(lat);
     Q_UNUSED(lon);
     Q_UNUSED(alt);

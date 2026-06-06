@@ -17,8 +17,6 @@ sample_data/scene/
 └── README.md             # 本说明文件
 ```
 
-在 Demo-01 中，已内置了两个小体积的开源摄影测量/扫描模型：
-1. `model_stanford_bunny_scan.obj`：真实激光扫描重建（Stanford 3D Scanning Repository）
-2. `model_photogrammetry_terrain.obj`：泊松曲面重建的摄影测量风格地形
+**注意：在 Demo-01（基础框架版）中，程序仅使用内置生成的简化几何体（SimpleScene），不依赖任何外部模型文件。**
 
-程序启动时将通过 Assimp 自动加载这两个模型进行渲染展示。对于更大的真实场景模型，请遵循上述不提交大文件的规范。
+外部模型加载（Assimp/TinyGLTF）和坐标系对齐功能将在后续的 Demo-02 和 Demo-03 中实现。
