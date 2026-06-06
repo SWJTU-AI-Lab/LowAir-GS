@@ -93,4 +93,5 @@ python3 tools/mavlink_simulator/send_mavlink_uav_udp.py --port 14550 --hz 10
 ## 功能边界说明
 
 - **只读设计**：当前 Demo 仅实现**遥测接收**，未实现指令发送（如起飞、降落、航点控制），确保地面站软件不会意外干扰真实飞行器的安全。
-- **协议支持**：目前仅支持 MAVLink v1 协议，后续 Demo-07 将引入完整的 MAVSDK 接入以支持 v2 和复杂任务控制。
+- **协议支持**：目前仅支持 MAVLink v1 协议。当前 `MavlinkRawTelemetrySource` 实现为**教学演示用途**，暂未进行 MAVLink CRC 校验，直接分发解析结果；若需接入真实 PX4/ArduPilot 飞控或复杂网络环境，建议引入完整 MAVSDK 或补充标准 MAVLink CRC 校验逻辑，以避免误解析损坏的数据帧。
+- **后续扩展方向**：完整的 MAVSDK / MAVLink v2 接入可作为 Demo-04 的扩展版本独立实现，支持 v2 长包、组件寻址和复杂任务控制，与本 Demo 的教学演示定位保持分离。
