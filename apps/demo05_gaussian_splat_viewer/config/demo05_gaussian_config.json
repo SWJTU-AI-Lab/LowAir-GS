@@ -1,0 +1,30 @@
+{
+  "default_gaussian": "../../../sample_data/demo05_gaussians/lowair_demo_gaussian_cloud.ply",
+  "coordinate_frame": "LOCAL_GAUSSIAN",
+  "unit": "meter",
+  "relation_to_photogrammetry_mesh": {
+    "status": "prepared_for_demo06_alignment",
+    "reference_mesh_demo": "Demo-02",
+    "expected_future_frame": "LOCAL_SCENE",
+    "note": "Demo-05 does not load photogrammetry mesh. It only prepares Gaussian assets for future mesh-GS alignment in Demo-06."
+  },
+  "initial_transform": {
+    "translation": [0.0, 0.0, 0.0],
+    "rotation_deg": [0.0, 0.0, 0.0],
+    "scale": 1.0
+  },
+  "display": {
+    "mode": "splat",
+    "show_grid": true,
+    "show_axis": true,
+    "show_bounding_box": true,
+    "show_fps": true
+  },
+  "render": {
+    "point_size": 3.0,
+    "splat_scale": 1.0,
+    "alpha_scale": 1.0,
+    "enable_depth_sort": true,
+    "max_gaussians": 20000
+  }
+}

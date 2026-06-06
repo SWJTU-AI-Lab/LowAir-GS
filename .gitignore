@@ -8,3 +8,4 @@ outputs/
 
 # Demo-04 build
 apps/demo04_mavlink_telemetry_viewer/build/
+apps/demo05_gaussian_splat_viewer/build/

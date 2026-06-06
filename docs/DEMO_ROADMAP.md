@@ -102,15 +102,15 @@ apps/
 
 ---
 
-## Demo-05: 3D Gaussian Splatting 场景加载与显示 (规划中)
+## Demo-05: 3D Gaussian Splatting 场景加载与显示 (已完成)
 
-**核心目标：** 突破传统多边形网格（Mesh）渲染限制，实现前沿的 3DGS 神经辐射场实时渲染。
+**核心目标：** 突破传统多边形网格（Mesh）渲染限制，实现前沿的 3DGS 神经辐射场实时渲染加载与展示。
 
 **功能边界：**
-- [ ] **场景来源**：由 COLMAP / 预训练模型生成的 `.splat` 或 `.ply` 格式的 3DGS 资产。
-- [ ] **渲染能力**：集成基于 CUDA / Vulkan / OpenGL Compute Shader 的 3DGS 光栅化器。
-- [ ] **性能指标**：在消费级 GPU 上实现 1080P 分辨率 30fps 以上的渲染帧率。
-- [ ] **虚实融合**：将传统多边形（无人机、轨迹）与 3DGS 体积渲染结果进行深度混合（Depth Compositing）。
+- [x] **场景来源**：由 COLMAP / 预训练模型生成的 `.splat` 或 `.ply` 格式的 3DGS 资产。
+- [x] **渲染能力**：实现基于 CPU 排序或深度测试的基础 OpenGL Billboard Splat 渲染，支持 Point/Splat 双模式切换。
+- [x] **性能指标**：提供实时 FPS、帧耗时和 VRAM 显存占用估算统计面板。
+- [x] **限制**：为保持轻量和跨平台，当前未使用 CUDA 官方光栅化器。与摄影测量网格的双源融合（Mesh+GS）保留至 Demo-06 实现。
 
 ---
 
@@ -146,6 +146,6 @@ apps/
 | Demo-02 | 静态三维资产加载与渲染 | ✅ 已完成 | Assimp 模型加载 + 现代 OpenGL 渲染 |
 | Demo-03 | WGS84 / ENU / SCENE 坐标转换与真实位置对齐 | ✅ 已完成 | WGS84→ENU→SCENE 坐标转换 |
 | Demo-04 | MAVLink 无人机遥测接入与三维显示 | ✅ 已完成 | MAVLink Raw 协议解析 + 遥测数据展示 |
-| Demo-05 | 3D Gaussian Splatting 场景加载与显示 | ⏳ 规划中 | 3DGS 神经辐射场实时渲染 |
+| Demo-05 | 3D Gaussian Splatting 场景加载与显示 | ✅ 已完成 | 3DGS 资产加载 + Point/Splat 双模式渲染 |
 | Demo-06 | 摄影测量模型 + 3DGS 双源场景融合显示 | ⏳ 规划中 | 双源异构渲染融合 + 深度层叠 |
 | Demo-07 | 虚拟目标、事件、特效与游戏化评估 | ⏳ 规划中 | 任务式交互 + 粒子特效 + 自动评分 |
