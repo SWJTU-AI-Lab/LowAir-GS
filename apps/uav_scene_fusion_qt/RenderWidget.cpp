@@ -9,9 +9,9 @@ RenderWidget::RenderWidget(QWidget *parent)
     , m_scene(nullptr)
     , m_uavRenderer(nullptr)
     , m_trajRenderer(nullptr)
-    , m_cameraDistance(100.0f)
-    , m_cameraPitch(30.0f)
-    , m_cameraYaw(45.0f)
+    , m_cameraDistance(80.0f)
+    , m_cameraPitch(55.0f)
+    , m_cameraYaw(30.0f)
 {
 }
 
@@ -57,7 +57,7 @@ void RenderWidget::paintGL()
     m_view.translate(0.0f, 0.0f, -m_cameraDistance);
     m_view.rotate(m_cameraPitch, 1.0f, 0.0f, 0.0f);
     m_view.rotate(m_cameraYaw, 0.0f, 1.0f, 0.0f);
-    m_view.translate(-50.0f, 0.0f, -50.0f); // 中心点偏移
+    m_view.translate(-30.0f, -10.0f, -30.0f); // 中心点偏移，使无人机飞行区域居中
 
     m_scene->render(m_projection, m_view);
     m_trajRenderer->render(m_projection, m_view);
@@ -114,9 +114,9 @@ void RenderWidget::clearTrajectory()
 
 void RenderWidget::resetView()
 {
-    m_cameraDistance = 100.0f;
-    m_cameraPitch = 30.0f;
-    m_cameraYaw = 45.0f;
+    m_cameraDistance = 80.0f;
+    m_cameraPitch = 55.0f;
+    m_cameraYaw = 30.0f;
     update();
 }
 
