@@ -186,14 +186,25 @@ LowAir-GS/
 │   ├── demo02_static_asset_viewer/     # Demo-02 静态三维资产查看器
 │   ├── demo03_geo_coordinate_alignment/# Demo-03 WGS84 坐标转换演示器
 │   ├── demo04_mavlink_telemetry_viewer/# Demo-04 MAVLink 遥测演示器
-│   └── demo05_gaussian_splat_viewer/   # Demo-05 3DGS 场景加载演示器
+│   ├── demo05_gaussian_splat_viewer/   # Demo-05 3DGS 场景加载演示器
+│   └── demo06_dual_scene_fusion/       # Demo-06 双源融合查看器
 ├── tools/
 │   ├── telemetry_simulator/            # Python 无人机遥测模拟器
-│   └── model_generators/               # Python 三维资产生成脚本
+│   ├── geo_telemetry_simulator/        # Python WGS84 遥测模拟器
+│   ├── mavlink_simulator/              # Python MAVLink 模拟器
+│   ├── model_generators/               # Python 三维资产生成脚本
+│   └── gaussian_generators/            # Python 高斯资产生成脚本
 ├── sample_data/
-│   └── demo02_assets/                  # Demo-02 示例三维资产
+│   ├── demo02_assets/                  # Demo-02 示例三维资产
+│   ├── demo03_geo/                     # Demo-03 示例地理数据
+│   ├── demo05_gaussians/               # Demo-05 示例高斯数据
+│   └── demo06_fusion/                  # Demo-06 示例双源融合数据
 ├── screenshots/
-│   └── demo02/                         # Demo-02 验收截图材料
+│   ├── demo02/                         # Demo-02 验收截图
+│   ├── demo03/                         # Demo-03 验收截图
+│   ├── demo04/                         # Demo-04 验收截图
+│   ├── demo05/                         # Demo-05 验收截图
+│   └── demo06/                         # Demo-06 验收截图
 ├── docs/
 │   ├── DEMO_ROADMAP.md                 # 项目 Demo 路线图
 │   └── tasks/                          # 学生任务分工与验收要求

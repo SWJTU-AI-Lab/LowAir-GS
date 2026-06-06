@@ -43,10 +43,12 @@ make -j4
 ### 4.3 运行方式
 可以直接运行程序，通过界面按钮加载数据，也可以通过命令行参数自动加载：
 ```bash
-# 生成示例数据
-python3 ../../tools/gaussian_generators/generate_demo06_assets.py
+# 在仓库根目录生成示例数据
+cd /path/to/LowAir-GS
+python3 tools/gaussian_generators/generate_demo06_assets.py
 
-# 启动并自动加载
+# 启动程序（在 build 目录下）
+cd apps/demo06_dual_scene_fusion/build
 ./Demo06DualSceneFusion \
     --mesh ../../../sample_data/demo06_fusion/building_mesh.obj \
     --gaussian ../../../sample_data/demo06_fusion/building_gaussians.ply \

@@ -41,4 +41,8 @@ struct FusionConfig {
     bool wireframeOverlay   = true;
 
     static FusionConfig defaultConfig();
+
+    // JSON 文件序列化 / 反序列化
+    static FusionConfig loadFromFile(const QString &path, bool *ok = nullptr);
+    bool saveToFile(const QString &path) const;
 };

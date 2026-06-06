@@ -375,6 +375,17 @@ void MainWindow::onLoadFusionConfig() {
     QString path = QFileDialog::getOpenFileName(
         this, "Load Fusion Config", QString(), "JSON (*.json);;All Files (*)");
     if (path.isEmpty()) return;
+    bool ok = false;
+    FusionConfig cfg = FusionConfig::loadFromFile(path, &ok);
+    if (!ok) {
+        log("[ERROR] Failed to load fusion config: " + path);
+        return;
+    }
+    // 将对齐参数应用到当前变换
+    m_fusionTransform.setTranslation(cfg.alignTranslation);
+    m_fusionTransform.setRotationDeg(cfg.alignRotationDeg);
+    m_fusionTransform.setScale(cfg.alignScale);
+    updateTransformSpinboxes();
     log("Fusion config loaded: " + path);
 }
 
@@ -382,7 +393,17 @@ void MainWindow::onSaveFusionConfig() {
     QString path = QFileDialog::getSaveFileName(
         this, "Save Fusion Config", "demo06_fusion_config.json", "JSON (*.json)");
     if (path.isEmpty()) return;
-    log("Fusion config saved: " + path);
+    // 将当前对齐参数写入配置
+    FusionConfig cfg = FusionConfig::defaultConfig();
+    cfg.alignTranslation = m_fusionTransform.translation();
+    cfg.alignRotationDeg = m_fusionTransform.rotationDeg();
+    cfg.alignScale       = m_fusionTransform.scale();
+    cfg.displayMode      = m_metrics.displayMode;
+    if (cfg.saveToFile(path)) {
+        log("Fusion config saved: " + path);
+    } else {
+        log("[ERROR] Failed to save fusion config: " + path);
+    }
 }
 
 void MainWindow::onMeshOnly() {
