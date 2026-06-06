@@ -1,0 +1,33 @@
+{
+  "telemetry": {
+    "source": "mavlink_raw",
+    "connection_url": "udp://:14550",
+    "vehicle_id": "mavlink_uav_01",
+    "read_only": true,
+    "auto_reconnect": true
+  },
+  "geo_origin": {
+    "mode": "manual",
+    "lat": 30.700000,
+    "lon": 104.000000,
+    "alt": 500.0
+  },
+  "scene": {
+    "unit": "meter",
+    "coordinate_frame": "ENU_SCENE",
+    "scene_scale": 1.0,
+    "max_display_radius_m": 300.0
+  },
+  "display": {
+    "show_grid": true,
+    "show_axis": true,
+    "show_origin_marker": true,
+    "show_trajectory": true,
+    "show_distance_rings": true,
+    "show_attitude_arrow": true
+  },
+  "logging": {
+    "save_telemetry_log": true,
+    "output_dir": "outputs/demo04_logs"
+  }
+}

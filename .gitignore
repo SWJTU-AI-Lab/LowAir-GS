@@ -1,0 +1,10 @@
+
+# Demo-04 遥测日志（不提交真实飞行数据）
+outputs/
+*.ulg
+*.tlog
+*.bin
+*.log
+
+# Demo-04 build
+apps/demo04_mavlink_telemetry_viewer/build/
