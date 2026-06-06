@@ -1,0 +1,71 @@
+{
+  "scenario_name": "demo07_lowair_game_evaluation",
+  "coordinate_frame": "LOCAL_SCENE",
+  "unit": "meter",
+  "scene": {
+    "mesh_path": "../../../sample_data/demo06_fusion/mesh/building_mesh.obj",
+    "gaussian_path": "../../../sample_data/demo06_fusion/gaussian/building_gaussians.ply",
+    "scene_scale": 1.0
+  },
+  "replay": {
+    "track_path": "../../../sample_data/demo07_game/replay_uav_track.jsonl",
+    "loop": true,
+    "speed": 1.0
+  },
+  "targets": [
+    {
+      "id": "poi_rooftop_01",
+      "type": "interest_point",
+      "name": "Rooftop Inspection Point",
+      "position": [0.0, 0.0, 6.5],
+      "radius": 2.0,
+      "score": 20,
+      "effect": "glow"
+    },
+    {
+      "id": "chk_entrance_01",
+      "type": "checkpoint",
+      "name": "Entrance Checkpoint",
+      "position": [-4.0, -4.0, 2.0],
+      "radius": 2.5,
+      "score": 15,
+      "effect": "pulse"
+    },
+    {
+      "id": "zone_courtyard_01",
+      "type": "inspection_zone",
+      "name": "Courtyard Scan Zone",
+      "center": [6.0, 4.0, 2.0],
+      "size": [5.0, 5.0, 4.0],
+      "score": 30,
+      "effect": "pulse"
+    }
+  ],
+  "events": [
+    {
+      "id": "enter_zone_event",
+      "trigger": "uav_enter_zone",
+      "target_id": "zone_courtyard_01",
+      "effect": "smoke_marker",
+      "message": "Inspection zone reached"
+    },
+    {
+      "id": "reach_rooftop_event",
+      "trigger": "uav_enter_target_radius",
+      "target_id": "poi_rooftop_01",
+      "effect": "glow",
+      "message": "Rooftop inspection point reached"
+    }
+  ],
+  "scoring": {
+    "max_score": 100,
+    "rules": {
+      "target_reached": 20,
+      "zone_coverage": 30,
+      "path_efficiency": 20,
+      "time_efficiency": 15,
+      "energy_estimate": 15
+    }
+  },
+  "safety_note": "Virtual-only evaluation. No real-world targeting, weapon control, ballistic or damage model is implemented."
+}
