@@ -1,0 +1,26 @@
+{
+  "mesh_file": "building_mesh.obj",
+  "gaussian_file": "building_gaussians.ply",
+  "fusion": {
+    "translation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation_deg": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": 1.0,
+    "mesh_opacity": 0.7,
+    "gaussian_opacity": 0.85,
+    "display_mode": "DualFusion"
+  },
+  "scene": {
+    "origin_lat": 30.5728,
+    "origin_lon": 104.0668,
+    "origin_alt": 500.0,
+    "description": "Demo-06 building fusion sample"
+  }
+}
