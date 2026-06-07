@@ -21,6 +21,7 @@
    - **Label Popup (浮动文字弹窗)**：事件触发时，在屏幕右上角显示带生命周期的文字提示（如得分增加和目标到达）。
    - **Path Highlight (轨迹高亮)**：已完成的轨迹段显示为亮黄色，未完成段保持青色，直观展示任务进度。
    - **Zone Outline (区域脉冲增强)**：无人机进入区域时，区域线框会变为亮蓝色并伴随呼吸脉冲缩放动画。
+   - **Virtual Explosion (虚拟爆炸特效)**：当触发特定事件时，渲染包含中心闪光、环形波纹、多色粒子和地面发光圆环的复合视觉特效。
 
 4. **游戏化评估与评分系统 (Game-like Evaluation & Scoring)**
    - 基于预定义的评分规则（Score Rules）对任务执行情况进行评估。
@@ -47,7 +48,7 @@
 - `event/`: 事件引擎与时间线 (EventEngine, EventRecord, EventTimeline)
 - `replay/`: 轨迹回放控制 (TrajectoryReplay, ReplayFrame)
 - `scoring/`: 评分规则与评估器 (ScoreRule, ScoreEvaluator, MissionReport)
-- `effects/`: 特效渲染器 (Effect, GlowEffectRenderer, ParticleEffectRenderer, LabelPopup)
+- `effects/`: 特效渲染器 (Effect, GlowEffectRenderer, ParticleEffectRenderer, LabelPopup, VirtualExplosionRenderer)
 - `render/`: 3D 渲染组件 (TargetRenderer, ZoneRenderer, TrajectoryRenderer 等)
 - `camera/`: 轨道相机控制 (OrbitCamera)
 
