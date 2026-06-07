@@ -85,6 +85,24 @@
       "effect": "particle"
     },
     {
+      "id": "explosion_event_a",
+      "name": "Virtual-Explosion-A",
+      "type": "checkpoint",
+      "position": [-5.0, 0.5, 0.0],
+      "radius": 1.8,
+      "score": 10,
+      "effect": "explosion"
+    },
+    {
+      "id": "explosion_event_b",
+      "name": "Virtual-Explosion-B",
+      "type": "checkpoint",
+      "position": [6.0, 0.5, -5.0],
+      "radius": 1.8,
+      "score": 10,
+      "effect": "explosion"
+    },
+    {
       "id": "zone_a",
       "name": "Zone-A",
       "type": "inspection_zone",
