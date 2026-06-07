@@ -39,6 +39,7 @@ set(SOURCES
     effects/Effect.cpp
     effects/ParticleEffectRenderer.cpp
     effects/GlowEffectRenderer.cpp
+    effects/LabelPopup.cpp
 
     render/TargetRenderer.cpp
     render/ZoneRenderer.cpp

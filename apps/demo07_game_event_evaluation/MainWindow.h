@@ -83,6 +83,7 @@ private:
 
     // 粒子更新定时器
     QTimer m_particleTimer;
-    float  m_replayElapsed = 0.0f;
-    bool   m_missionLoaded = false;
+    float  m_replayElapsed  = 0.0f;
+    bool   m_missionLoaded  = false;
+    int    m_pathPointCount = 0;   // 已记录轨迹点数（Path Highlight 用）
 };

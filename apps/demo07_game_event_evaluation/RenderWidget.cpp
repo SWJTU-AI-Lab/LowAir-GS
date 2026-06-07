@@ -71,6 +71,8 @@ void RenderWidget::paintGL() {
     m_hud.render(painter, width(), height(),
                  m_score, m_maxScore, m_elapsed, m_battery,
                  m_events, m_status);
+    // Label Popup 弹窗（右上角）
+    m_hud.renderPopups(painter, width(), height(), m_popups);
     painter.end();
 }
 
@@ -101,6 +103,7 @@ void RenderWidget::spawnEffect(const Effect& e) {
 
 void RenderWidget::updateParticles(float dt) {
     m_partRdr.update(dt);
+    m_popups.update(dt);
     // 更新 effect 生命周期
     for (auto& ef : m_effects) {
         ef.elapsed += dt;
@@ -120,6 +123,14 @@ void RenderWidget::setHudData(int score, int maxScore, float elapsed, float batt
     m_battery  = battery;
     m_events   = events;
     m_status   = status;
+}
+
+void RenderWidget::pushPopup(const QString& text) {
+    m_popups.push(text);
+}
+
+void RenderWidget::setPathHighlight(int upToIndex) {
+    m_trajRdr.setHighlightUpTo(upToIndex);
 }
 
 void RenderWidget::mousePressEvent(QMouseEvent* e) {

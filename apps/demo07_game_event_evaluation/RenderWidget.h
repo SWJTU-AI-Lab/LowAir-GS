@@ -16,6 +16,7 @@
 #include "render/HudRenderer.h"
 #include "effects/GlowEffectRenderer.h"
 #include "effects/ParticleEffectRenderer.h"
+#include "effects/LabelPopup.h"
 #include "mission/VirtualTarget.h"
 #include "mission/TriggerZone.h"
 #include "effects/Effect.h"
@@ -38,6 +39,12 @@ public:
     // HUD 数据
     void setHudData(int score, int maxScore, float elapsed, float battery,
                     int events, const QString& status);
+
+    // Label Popup 弹窗
+    void pushPopup(const QString& text);
+
+    // Path Highlight：设置高亮截止点索引
+    void setPathHighlight(int upToIndex);
 
     float fps() const { return m_fps.fps(); }
 
@@ -64,6 +71,7 @@ private:
     HudRenderer          m_hud;
     GlowEffectRenderer   m_glowRdr;
     ParticleEffectRenderer m_partRdr;
+    LabelPopupQueue      m_popups;
 
     std::vector<VirtualTarget> m_targets;
     std::vector<TriggerZone>   m_zones;

@@ -33,6 +33,11 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
         m_lstEvents->addItem(QString("[%1s] 到达目标 %2")
                              .arg(m_replayElapsed, 0, 'f', 1).arg(targetId));
         appendLog(QString("✓ 到达目标 %1 (特效: %2)").arg(targetId).arg(effectType));
+        // Label Popup 弹窗
+        m_renderWidget->pushPopup(QString("+%1  %2 到达")
+                                   .arg(20).arg(targetId));
+        // Path Highlight 更新：将当前已记录轨迹点全部标为高亮
+        m_renderWidget->setPathHighlight(m_pathPointCount);
         // Glow 特效
         for (const auto& t : m_targets) {
             if (t.id == targetId) {
@@ -52,6 +57,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
         m_lstEvents->addItem(QString("[%1s] 进入区域 %2")
                              .arg(m_replayElapsed, 0, 'f', 1).arg(zoneId));
         appendLog(QString("✓ 进入区域 %1 (特效: %2)").arg(zoneId).arg(effectType));
+        // Label Popup 弹窗
+        m_renderWidget->pushPopup(QString("+%1  进入区域 %2")
+                                   .arg(15).arg(zoneId));
         // Pulse 特效
         for (const auto& z : m_zones) {
             if (z.id == zoneId) {
@@ -278,8 +286,9 @@ void MainWindow::loadMissionFromFile(const QString& path) {
 
     m_btnStartReplay->setEnabled(true);
     m_btnResetReplay->setEnabled(true);
-    m_missionLoaded = true;
-    m_replayElapsed = 0.0f;
+    m_missionLoaded  = true;
+    m_replayElapsed  = 0.0f;
+    m_pathPointCount = 0;
     m_lstEvents->clear();
     updateScorePanel();
 
@@ -332,7 +341,8 @@ void MainWindow::onResetReplay() {
     m_renderWidget->setZones(m_zones);
     m_renderWidget->clearTrajectory();
     m_lstEvents->clear();
-    m_replayElapsed = 0.0f;
+    m_replayElapsed  = 0.0f;
+    m_pathPointCount = 0;
     m_btnStartReplay->setEnabled(true);
     m_btnPauseReplay->setEnabled(false);
     m_btnPauseReplay->setText("⏸ Pause");
@@ -347,6 +357,7 @@ void MainWindow::onFrameUpdated(const ReplayFrame& frame) {
 
     // 更新无人机位置
     m_renderWidget->setUavPosition(frame.position, frame.yawDeg);
+    m_pathPointCount++;  // 跟踪轨迹点计数（用于 Path Highlight）
 
     // 驱动事件引擎检测
     m_eventEngine.update(frame.position, frame.timestamp);
