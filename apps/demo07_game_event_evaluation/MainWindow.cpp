@@ -38,14 +38,21 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
                                    .arg(20).arg(targetId));
         // Path Highlight 更新：将当前已记录轨迹点全部标为高亮
         m_renderWidget->setPathHighlight(m_pathPointCount);
-        // Glow 特效
+        // 触发特效
         for (const auto& t : m_targets) {
             if (t.id == targetId) {
                 Effect ge;
                 ge.type     = Effect::fromString(effectType);
                 ge.position = t.position;
-                ge.color    = QVector4D(0.2f, 1.0f, 0.3f, 1.0f);
-                ge.lifetime = 2.0f;
+                if (ge.type == EffectType::Explosion) {
+                    // 虚拟爆炸视觉特效（非物理、非毁伤模型）
+                    ge.color    = QVector4D(1.0f, 0.4f, 0.0f, 1.0f);
+                    ge.lifetime = 2.5f;
+                    m_renderWidget->pushPopup(QString("[Virtual Explosion Effect] %1").arg(targetId));
+                } else {
+                    ge.color    = QVector4D(0.2f, 1.0f, 0.3f, 1.0f);
+                    ge.lifetime = 2.0f;
+                }
                 m_renderWidget->spawnEffect(ge);
                 break;
             }

@@ -17,6 +17,7 @@
 #include "effects/GlowEffectRenderer.h"
 #include "effects/ParticleEffectRenderer.h"
 #include "effects/LabelPopup.h"
+#include "effects/VirtualExplosionRenderer.h"
 #include "mission/VirtualTarget.h"
 #include "mission/TriggerZone.h"
 #include "effects/Effect.h"
@@ -70,8 +71,9 @@ private:
     UavMarkerRenderer    m_uavRdr;
     HudRenderer          m_hud;
     GlowEffectRenderer   m_glowRdr;
-    ParticleEffectRenderer m_partRdr;
-    LabelPopupQueue      m_popups;
+    ParticleEffectRenderer    m_partRdr;
+    VirtualExplosionRenderer  m_explRdr;  // 虚拟爆炸视觉特效（非物理、非毁伤）
+    LabelPopupQueue           m_popups;
 
     std::vector<VirtualTarget> m_targets;
     std::vector<TriggerZone>   m_zones;

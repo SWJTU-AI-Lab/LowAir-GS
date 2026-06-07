@@ -10,6 +10,7 @@
 #include <memory>
 
 #include "RenderWidget.h"
+#include "effects/Effect.h"
 #include "mission/MissionConfig.h"
 #include "mission/MissionState.h"
 #include "event/EventEngine.h"

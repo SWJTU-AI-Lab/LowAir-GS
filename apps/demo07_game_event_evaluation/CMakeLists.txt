@@ -40,6 +40,7 @@ set(SOURCES
     effects/ParticleEffectRenderer.cpp
     effects/GlowEffectRenderer.cpp
     effects/LabelPopup.cpp
+    effects/VirtualExplosionRenderer.cpp
 
     render/TargetRenderer.cpp
     render/ZoneRenderer.cpp

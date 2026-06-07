@@ -23,6 +23,7 @@ RenderWidget::~RenderWidget() {
     m_uavRdr.cleanup();
     m_glowRdr.cleanup();
     m_partRdr.cleanup();
+    m_explRdr.cleanup();
     doneCurrent();
 }
 
@@ -41,6 +42,7 @@ void RenderWidget::initializeGL() {
     m_uavRdr.initialize();
     m_glowRdr.initialize();
     m_partRdr.initialize();
+    m_explRdr.initialize();
 }
 
 void RenderWidget::resizeGL(int w, int h) {
@@ -65,6 +67,7 @@ void RenderWidget::paintGL() {
     m_uavRdr.render(mvp, m_uavPos, m_uavYaw);
     m_glowRdr.render(mvp, m_effects);
     m_partRdr.render(mvp);
+    m_explRdr.render(mvp);  // 虚拟爆炸视觉特效（非物理、非毁伤）
 
     // HUD（QPainter 叠加）
     QPainter painter(this);
@@ -98,11 +101,15 @@ void RenderWidget::spawnEffect(const Effect& e) {
     m_effects.push_back(e);
     if (e.type == EffectType::Particle) {
         m_partRdr.spawnBurst(e.position, 60);
+    } else if (e.type == EffectType::Explosion) {
+        // 虚拟爆炸视觉特效（非物理、非毁伤模型）
+        m_explRdr.spawnExplosion(e.position);
     }
 }
 
 void RenderWidget::updateParticles(float dt) {
     m_partRdr.update(dt);
+    m_explRdr.update(dt);  // 虚拟爆炸视觉特效更新
     m_popups.update(dt);
     // 更新 effect 生命周期
     for (auto& ef : m_effects) {
