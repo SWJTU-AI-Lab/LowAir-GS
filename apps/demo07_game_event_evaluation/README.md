@@ -15,10 +15,12 @@
    - 自动触发“到达目标”、“进入区域”、“离开区域”等事件。
    - 维护事件时间线（Event Timeline），记录事件发生的时间、类型和关联对象。
 
-3. **视觉特效渲染 (Visual Effects Rendering)**
-   - **Glow Effect (发光特效)**：当无人机到达虚拟目标时，目标会产生高亮发光效果。
-   - **Particle Effect (粒子特效)**：当无人机进入特定区域时，触发粒子特效（如脉冲或爆炸模拟）。
-   - 特效与事件引擎深度集成，实现视觉反馈的实时同步。
+3. **视觉特效与增强渲染 (Visual Effects & Rendering Enhancements)**
+   - **Glow Effect (发光特效)**：当无人机到达虚拟目标时，目标会产生高亮发光效果，且目标线框变为绿色。
+   - **Particle Effect (粒子特效)**：当无人机到达特定检查点时，触发粒子爆发特效。
+   - **Label Popup (浮动文字弹窗)**：事件触发时，在屏幕右上角显示带生命周期的文字提示（如得分增加和目标到达）。
+   - **Path Highlight (轨迹高亮)**：已完成的轨迹段显示为亮黄色，未完成段保持青色，直观展示任务进度。
+   - **Zone Outline (区域脉冲增强)**：无人机进入区域时，区域线框会变为亮蓝色并伴随呼吸脉冲缩放动画。
 
 4. **游戏化评估与评分系统 (Game-like Evaluation & Scoring)**
    - 基于预定义的评分规则（Score Rules）对任务执行情况进行评估。
@@ -45,7 +47,7 @@
 - `event/`: 事件引擎与时间线 (EventEngine, EventRecord, EventTimeline)
 - `replay/`: 轨迹回放控制 (TrajectoryReplay, ReplayFrame)
 - `scoring/`: 评分规则与评估器 (ScoreRule, ScoreEvaluator, MissionReport)
-- `effects/`: 特效渲染器 (Effect, GlowEffectRenderer, ParticleEffectRenderer)
+- `effects/`: 特效渲染器 (Effect, GlowEffectRenderer, ParticleEffectRenderer, LabelPopup)
 - `render/`: 3D 渲染组件 (TargetRenderer, ZoneRenderer, TrajectoryRenderer 等)
 - `camera/`: 轨道相机控制 (OrbitCamera)
 
@@ -72,4 +74,4 @@ make -j$(nproc)
 
 ## 安全边界声明
 
-本程序仅用于**虚拟场景教学评估**与算法验证演示，**不涉及**任何真实无人机控制、武器系统、弹道计算或真实爆破模型。所有目标、事件和特效均为纯软件层面的虚拟模拟，旨在展示地面站软件系统的架构设计与数据处理能力。
+本程序仅用于**虚拟场景教学评估**与算法验证演示，**不涉及**任何真实无人机控制。所有目标、事件和特效均为纯软件层面的虚拟模拟，旨在展示地面站软件系统的架构设计与数据处理能力。

@@ -324,7 +324,7 @@ LowAir-GS/
 - [x] **独立 Qt C++ 游戏化评估系统**（`apps/demo07_game_event_evaluation/`）
   - **虚拟目标与区域**：支持 JSON 配置的 3D 虚拟目标点和触发区域
   - **事件引擎**：实时监控无人机轨迹，自动触发到达、进入、离开等事件
-  - **特效渲染**：集成目标发光（Glow）和区域粒子（Particle）视觉特效
+  - **特效与增强渲染**：集成目标发光（Glow）、粒子爆发（Particle）、Label Popup弹窗、Path Highlight轨迹高亮以及Zone Outline区域脉冲动画
   - **游戏化评分**：基于事件、时间、电量进行自动化评分并生成任务报告
 - [x] **Python 示例数据生成脚本**（`tools/gaussian_generators/generate_demo07_assets.py`）
   - 自动生成任务配置、虚拟目标、触发区域、评分规则和轨迹回放数据
