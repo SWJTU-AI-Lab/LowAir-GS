@@ -4,11 +4,7 @@
       "id": 1,
       "name": "Target-01",
       "type": "inspection_point",
-      "position": [
-        3.0,
-        0.5,
-        3.0
-      ],
+      "position": [3.0, 0.5, 3.0],
       "radius": 1.2,
       "score": 20,
       "effect_type": "glow"
@@ -17,11 +13,7 @@
       "id": 2,
       "name": "Target-02",
       "type": "inspection_point",
-      "position": [
-        -3.0,
-        0.5,
-        3.0
-      ],
+      "position": [-3.0, 0.5, 3.0],
       "radius": 1.2,
       "score": 20,
       "effect_type": "glow"
@@ -30,11 +22,7 @@
       "id": 3,
       "name": "Target-03",
       "type": "inspection_point",
-      "position": [
-        0.0,
-        0.5,
-        -4.0
-      ],
+      "position": [0.0, 0.5, -4.0],
       "radius": 1.2,
       "score": 20,
       "effect_type": "glow"
@@ -43,11 +31,7 @@
       "id": 4,
       "name": "Target-04",
       "type": "inspection_point",
-      "position": [
-        4.0,
-        0.5,
-        -2.0
-      ],
+      "position": [4.0, 0.5, -2.0],
       "radius": 1.2,
       "score": 20,
       "effect_type": "glow"
@@ -56,14 +40,28 @@
       "id": 5,
       "name": "Target-05",
       "type": "inspection_point",
-      "position": [
-        -4.0,
-        0.5,
-        -2.0
-      ],
+      "position": [-4.0, 0.5, -2.0],
       "radius": 1.2,
       "score": 20,
       "effect_type": "glow"
+    },
+    {
+      "id": 6,
+      "name": "Checkpoint-Particle-A",
+      "type": "checkpoint",
+      "position": [2.0, 1.0, 0.0],
+      "radius": 1.5,
+      "score": 15,
+      "effect_type": "particle"
+    },
+    {
+      "id": 7,
+      "name": "Final-Completion-Marker",
+      "type": "checkpoint",
+      "position": [0.0, 1.0, 8.0],
+      "radius": 1.5,
+      "score": 15,
+      "effect_type": "particle"
     }
   ]
 }

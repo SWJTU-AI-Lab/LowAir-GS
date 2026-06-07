@@ -1,6 +1,6 @@
 {
-  "mission_id": "demo07_inspection_mission_01",
-  "scenario_name": "Demo-07 虚拟巡检评估任务",
+  "mission_id": "demo07_inspection_mission_v2",
+  "scenario_name": "Demo-07 虚拟巡检评估任务（增强版）",
   "scene": {
     "mesh_path": "",
     "gaussian_path": ""
@@ -22,103 +22,85 @@
   },
   "targets": [
     {
-      "id": 1,
+      "id": "target_01",
       "name": "Target-01",
       "type": "inspection_point",
-      "position": [
-        3.0,
-        0.5,
-        3.0
-      ],
+      "position": [3.0, 0.5, 3.0],
       "radius": 1.2,
       "score": 20,
-      "effect_type": "glow"
+      "effect": "glow"
     },
     {
-      "id": 2,
+      "id": "target_02",
       "name": "Target-02",
       "type": "inspection_point",
-      "position": [
-        -3.0,
-        0.5,
-        3.0
-      ],
+      "position": [-3.0, 0.5, 3.0],
       "radius": 1.2,
       "score": 20,
-      "effect_type": "glow"
+      "effect": "glow"
     },
     {
-      "id": 3,
+      "id": "target_03",
       "name": "Target-03",
       "type": "inspection_point",
-      "position": [
-        0.0,
-        0.5,
-        -4.0
-      ],
+      "position": [0.0, 0.5, -4.0],
       "radius": 1.2,
       "score": 20,
-      "effect_type": "glow"
+      "effect": "glow"
     },
     {
-      "id": 4,
+      "id": "target_04",
       "name": "Target-04",
       "type": "inspection_point",
-      "position": [
-        4.0,
-        0.5,
-        -2.0
-      ],
+      "position": [4.0, 0.5, -2.0],
       "radius": 1.2,
       "score": 20,
-      "effect_type": "glow"
+      "effect": "glow"
     },
     {
-      "id": 5,
+      "id": "target_05",
       "name": "Target-05",
       "type": "inspection_point",
-      "position": [
-        -4.0,
-        0.5,
-        -2.0
-      ],
+      "position": [-4.0, 0.5, -2.0],
       "radius": 1.2,
       "score": 20,
-      "effect_type": "glow"
+      "effect": "glow"
     },
     {
-      "id": 101,
+      "id": "checkpoint_particle_a",
+      "name": "Checkpoint-Particle-A",
+      "type": "checkpoint",
+      "position": [2.0, 1.0, 0.0],
+      "radius": 1.5,
+      "score": 15,
+      "effect": "particle"
+    },
+    {
+      "id": "checkpoint_final_particle",
+      "name": "Final-Completion-Marker",
+      "type": "checkpoint",
+      "position": [0.0, 1.0, 8.0],
+      "radius": 1.5,
+      "score": 15,
+      "effect": "particle"
+    },
+    {
+      "id": "zone_a",
       "name": "Zone-A",
       "type": "inspection_zone",
-      "center": [
-        0.0,
-        1.0,
-        0.0
-      ],
-      "size": [
-        4.0,
-        2.0,
-        4.0
-      ],
+      "center": [0.0, 1.0, 0.0],
+      "size": [4.0, 2.0, 4.0],
       "score": 15,
-      "effect_type": "pulse"
+      "effect": "pulse"
     },
     {
-      "id": 102,
+      "id": "zone_b",
       "name": "Zone-B",
       "type": "inspection_zone",
-      "center": [
-        5.0,
-        1.0,
-        5.0
-      ],
-      "size": [
-        3.0,
-        2.0,
-        3.0
-      ],
+      "center": [5.0, 1.0, 5.0],
+      "size": [3.0, 2.0, 3.0],
       "score": 15,
-      "effect_type": "pulse"
+      "effect": "pulse"
     }
   ]
 }
